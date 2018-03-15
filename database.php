@@ -2,7 +2,7 @@
 $server = '127.0.0.1';
 $username = 'root';
 $password = 'dbroot';
-$database = 'php-web-example';
+$database = 'php_web_example';
 
 try {
 	$conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
