@@ -7,8 +7,28 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <?php
+    require 'function.php';
+    /**
+     * Session security should be properly configured, such as:
+     * @ref: https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessions
+     *
+     * session.save_handler = files
+     * session.use_cookies = 1
+     * session.cookie_secure = 1
+     * session.use_only_cookies = 1
+     * session.cookie_domain = "example.com"
+     * session.cookie_httponly = 1
+     * session.entropy_length = 32
+     * session.entropy_file = /dev/urandom
+     * session.hash_function = sha256
+     * session.hash_bits_per_character = 5
+     */
+    session_start();
+
+    check_canary();
+    ?>
 </head>
 <body>
 
@@ -20,13 +40,21 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <?php if(is_logged_in()): ?>
+                    <a class="nav-link" href="logout.php">Logout</a>
+                <?php else: ?>
+                    <a class="nav-link" href="login.php">Login</a>
+                <?php endif; ?>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+	            <?php if(is_logged_in()): ?>
+                    <a class="nav-link disabled"><?php get_user(); ?></a>
+	            <?php else: ?>
+                    <a class="nav-link" href="login.php">Login</a>
+	            <?php endif; ?>
             </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
