@@ -2,6 +2,8 @@
 
 session_start();
 
+require 'function.php';
+
 if(!empty($_POST['email']) && !empty($_POST['password'])) {
 	check_credentials($_POST['email'], $_POST['password']);
 } else {
