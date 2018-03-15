@@ -26,8 +26,6 @@
      * session.hash_bits_per_character = 5
      */
     session_start();
-
-    check_canary();
     ?>
 </head>
 <body>
