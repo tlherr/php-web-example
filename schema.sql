@@ -12,3 +12,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` (`username`, `email`, `password`,`active`) 
+VALUES('user', 'user@domain.com',  SHA('password'), 1);
