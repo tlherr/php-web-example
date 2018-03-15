@@ -34,7 +34,7 @@ function check_canary() {
  * Get user object from session
  */
 function get_user() {
-	$records = $conn->prepare('SELECT id,email,password FROM users WHERE id = :id');
+	$records = $conn->prepare('SELECT * FROM users WHERE id = :id');
 	$records->bindParam(':id', $_SESSION['user_id']);
 	$records->execute();
 	$results = $records->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +53,7 @@ function get_user() {
  * @param $password
  */
 function check_credentials($email, $password) {
-	$records = $conn->prepare( 'SELECT id,email,password FROM users WHERE email = :email and password = SHA(:password)');
+	$records = $conn->prepare( 'SELECT * FROM users WHERE email = :email and password = SHA(:password)');
 	$records->bindParam( ':email', $_POST['email'] );
 	$records->bindParam( ':password', $_POST['password'] );
 	$records->execute();
