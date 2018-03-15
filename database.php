@@ -14,8 +14,8 @@ function get_connection() {
 	}
 }
 
-function close_connection($connection) {
-	$connection->close();
+function close_connection(PDO $connection) {
+	$connection=null;
 }
 
 
