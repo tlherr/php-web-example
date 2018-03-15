@@ -1,3 +1,9 @@
+<?php
+/**
+ * This is the main page of the website, it will be shown when first accessed
+ * is_logged_in() function can be used to check session for user login
+ */
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -42,14 +48,17 @@
             </li>
             <li class="nav-item">
                 <?php if(is_logged_in()): ?>
+                    <!-- If the user is logged in, show a logout option -->
                     <a class="nav-link" href="logout.php">Logout</a>
                 <?php else: ?>
+                    <!-- Otherwise show a login option -->
                     <a class="nav-link" href="login.php">Login</a>
                 <?php endif; ?>
             </li>
 	        <?php if(is_logged_in()): ?>
             <li class="nav-item">
-                <a class="nav-link disabled">Hello <?php get_user(); ?></a>
+                <!-- If user is logged in we can say hello {username} -->
+                <a class="nav-link disabled">Hello <?php print(get_user()['username']); ?></a>
             </li>
 	        <?php endif; ?>
         </ul>
