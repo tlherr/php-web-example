@@ -53,12 +53,13 @@ function get_user() {
  * @param $password
  */
 function check_credentials($email, $password) {
-	$records = $conn->prepare( 'SELECT id,email,password FROM users WHERE email = :email' );
+	$records = $conn->prepare( 'SELECT id,email,password FROM users WHERE email = :email and password = SHA(:password)');
 	$records->bindParam( ':email', $_POST['email'] );
+	$records->bindParam( ':password', $_POST['password'] );
 	$records->execute();
 	$results = $records->fetch( PDO::FETCH_ASSOC );
 
-	if(count($results) > 0 && password_verify($_POST['password'], $results['password']) ) {
+	if(count($results) > 0) {
 		$_SESSION['user_id'] = $results['id'];
 		return true;
 	} else {
