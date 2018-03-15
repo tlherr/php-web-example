@@ -49,13 +49,11 @@
                     <a class="nav-link" href="login.php">Login</a>
                 <?php endif; ?>
             </li>
+	        <?php if(is_logged_in()): ?>
             <li class="nav-item">
-	            <?php if(is_logged_in()): ?>
-                    <a class="nav-link disabled"><?php get_user(); ?></a>
-	            <?php else: ?>
-                    <a class="nav-link" href="login.php">Login</a>
-	            <?php endif; ?>
+                <a class="nav-link disabled">Hello <?php get_user(); ?></a>
             </li>
+	        <?php endif; ?>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
