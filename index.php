@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <?php
-    require 'function.php';
     /**
      * Session security should be properly configured, such as:
      * @ref: https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessions
@@ -26,6 +25,7 @@
      * session.hash_bits_per_character = 5
      */
     session_start();
+    require 'function.php';
     ?>
 </head>
 <body>
