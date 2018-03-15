@@ -18,7 +18,7 @@
 <?php session_start(); ?>
 
 <body class="text-center">
-<form class="form-signin" action="validate.php" method="post">
+<form class="form-signin" action="/validate.php" method="post">
 	<img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 	<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 	<label for="inputEmail" class="sr-only">Email address</label>
