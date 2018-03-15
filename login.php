@@ -15,6 +15,8 @@
 	<link href="css/signin.css" rel="stylesheet">
 </head>
 
+<?php session_start(); ?>
+
 <body class="text-center">
 <form class="form-signin" action="validate.php" method="post">
 	<img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
