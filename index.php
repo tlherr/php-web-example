@@ -2,7 +2,22 @@
 /**
  * This is the main page of the website, it will be shown when first accessed
  * is_logged_in() function can be used to check session for user login
+ *
+ * Session security should be properly configured, such as:
+ * @ref: https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessions
+ *
+ * session.save_handler = files
+ * session.use_cookies = 1
+ * session.cookie_secure = 1
+ * session.use_only_cookies = 1
+ * session.cookie_domain = "example.com"
+ * session.cookie_httponly = 1
+ * session.entropy_length = 32
+ * session.entropy_file = /dev/urandom
+ * session.hash_function = sha256
+ * session.hash_bits_per_character = 5
  */
+session_start();
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -15,22 +30,6 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <?php
-    /**
-     * Session security should be properly configured, such as:
-     * @ref: https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessions
-     *
-     * session.save_handler = files
-     * session.use_cookies = 1
-     * session.cookie_secure = 1
-     * session.use_only_cookies = 1
-     * session.cookie_domain = "example.com"
-     * session.cookie_httponly = 1
-     * session.entropy_length = 32
-     * session.entropy_file = /dev/urandom
-     * session.hash_function = sha256
-     * session.hash_bits_per_character = 5
-     */
-    session_start();
 
     if (!is_writable(session_save_path())) {
 	    echo 'Session path "'.session_save_path().'" is not writable for PHP!';

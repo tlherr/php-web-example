@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,8 +16,6 @@
 	<!-- Custom styles for this template -->
 	<link href="css/signin.css" rel="stylesheet">
 </head>
-
-<?php session_start(); ?>
 
 <body class="text-center">
 <form class="form-signin" action="validate.php" method="post" accept-charset='UTF-8'>
