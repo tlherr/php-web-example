@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+check_canary();
 require 'function.php';
 
 /**

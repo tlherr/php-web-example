@@ -18,6 +18,8 @@
  * session.hash_bits_per_character = 5
  */
 session_start();
+require 'function.php';
+check_canary();
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -29,15 +31,6 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <?php
-
-    if (!is_writable(session_save_path())) {
-	    echo 'Session path "'.session_save_path().'" is not writable for PHP!';
-    }
-
-
-    require 'function.php';
-    ?>
 </head>
 <body>
 
