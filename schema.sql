@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`username`, `email`, `password`,`active`) 
 VALUES('user', 'user@domain.com',  SHA('password'), 1);
+
+INSERT INTO `users` (`username`, `email`, `password`,`active`)
+VALUES('user1', 'user1@domain.com',  SHA('password1'), 1);
